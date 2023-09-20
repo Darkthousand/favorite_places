@@ -31,25 +31,28 @@ class PlacesList extends ConsumerWidget {
                 .read(userPlacesNotifier.notifier)
                 .removePlace(places[index].title);
           },
-          child: ListTile(
-            leading: CircleAvatar(
-              radius: 26,
-              backgroundImage: FileImage(places[index].image),
-            ),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (ctx) {
-                    return PlaceDetailScreen(
-                      place: places[index],
-                    );
-                  },
-                ),
-              );
-            },
-            title: Text(
-              places[index].title,
-              style: Theme.of(context).textTheme.titleSmall,
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(1, 10, 1, 1),
+            child: ListTile(
+              leading: CircleAvatar(
+                radius: 26,
+                backgroundImage: FileImage(places[index].image),
+              ),
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (ctx) {
+                      return PlaceDetailScreen(
+                        place: places[index],
+                      );
+                    },
+                  ),
+                );
+              },
+              title: Text(
+                places[index].title,
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
             ),
           ),
         );
